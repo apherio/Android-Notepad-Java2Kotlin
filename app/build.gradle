@@ -37,6 +37,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     //Anko library
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
+    //Anko Sql
+    implementation "org.jetbrains.anko:anko-sqlite:$anko_version"
 }
 repositories {
     mavenCentral()

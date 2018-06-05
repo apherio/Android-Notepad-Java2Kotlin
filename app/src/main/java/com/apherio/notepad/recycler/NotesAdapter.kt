@@ -4,20 +4,17 @@ import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-
 import com.apherio.notepad.R
 import com.apherio.notepad.data.DataStore
 import com.apherio.notepad.data.Note
-import com.apherio.notepad.util.layoutInflator
+import com.apherio.notepad.util.layoutInflater
 import kotlinx.android.synthetic.main.item_note.view.*
-
-import java.util.ArrayList
+import java.util.*
 
 class NotesAdapter(private val context: Context) : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
+
     private var notes: List<Note> = ArrayList()
     private var isRefreshing = false
 
@@ -38,8 +35,7 @@ class NotesAdapter(private val context: Context) : RecyclerView.Adapter<NotesAda
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
-        val view =context.layoutInflator.inflate(R.layout.item_note, parent, false)
-        return NotesViewHolder(view)
+        return NotesViewHolder(context.layoutInflater.inflate(R.layout.item_note, parent, false))
     }
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
@@ -62,7 +58,5 @@ class NotesAdapter(private val context: Context) : RecyclerView.Adapter<NotesAda
 
     class NotesViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val text = itemView.text
-
-
     }
 }

@@ -10,7 +10,6 @@ import com.apherio.notepad.data.NotesContract.NoteTable.TEXT
 import com.apherio.notepad.data.NotesContract.NoteTable.UPDATED_AT
 import com.apherio.notepad.data.NotesContract.NoteTable._TABLE_NAME
 import org.jetbrains.anko.db.transaction
-
 import java.util.*
 
 class NoteDatabase(context: Context) {

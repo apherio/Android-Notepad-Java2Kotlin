@@ -6,17 +6,13 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
-
 import com.apherio.notepad.R
 import com.apherio.notepad.data.DataStore
 import com.apherio.notepad.data.Note
 import kotlinx.android.synthetic.main.activity_create.*
-
-import java.util.Date
+import java.util.*
 
 class CreateActivity : AppCompatActivity() {
-
 
     companion object {
 
@@ -28,7 +24,6 @@ class CreateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create)
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -48,10 +43,10 @@ class CreateActivity : AppCompatActivity() {
     }
 
     private fun save() {
-        DataStore.execute(Runnable {
+        DataStore.execute {
             val note = updateNote()
             DataStore.notes.insert(note)
-        })
+        }
     }
 
     private fun updateNote(): Note {
@@ -60,5 +55,4 @@ class CreateActivity : AppCompatActivity() {
         note.updatedAt = Date()
         return note
     }
-
 }

@@ -3,26 +3,20 @@ package com.apherio.notepad.data
 import android.content.Context
 import org.jetbrains.anko.doAsync
 
-import java.util.concurrent.Executor
-import java.util.concurrent.Executors
-
 object DataStore {
-
 
     @JvmStatic
     lateinit var notes: NoteDatabase
-        private set
 
     fun init(context: Context) {
         notes = NoteDatabase(context)
     }
 
     fun execute(runnable: Runnable) {
-        execute{runnable.run()}
+        execute { runnable.run() }
     }
 
-       fun execute(fn: () -> Unit) {
-           doAsync { fn() }
-       }
-
+    fun execute(fn: () -> Unit) {
+        doAsync { fn() }
+    }
 }
